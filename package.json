@@ -1,0 +1,38 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.5",
+    "echarts": "^3.7.1",
+    "echarts-for-react": "^1.4.4",
+    "install": "^0.10.1",
+    "npm": "^5.3.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.12",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.72.0",
+    "style-loader": "^0.18.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "start-package": "webpack --config mywebpack.config.js"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.5",
+    "style-loader": "^0.18.2",
+    "file-loader": "^0.11.2",
+    "jsx-loader": "^0.13.2",
+    "svg-url-loader": "^2.1.1",
+    "webpack": "^3.5.5",
+    "whatwg-fetch": "^2.0.3"
+  }
+}

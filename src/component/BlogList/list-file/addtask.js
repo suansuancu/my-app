@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import ClassNames from 'classnames';
+import {Button, Form, Input} from 'semantic-ui-react';
 
 export default class AddItems extends React.Component {
 	constructor(props) {
@@ -38,15 +39,9 @@ export default class AddItems extends React.Component {
 
 	render(){
 		return (<div onClick={this.stopPopg}>
-			<div className="form-group">
-				<label className="name">Name</label>
-				<input type="text" ref="name"/>
-			</div>
-			<div className="form-group">
-				<label className="desc">Desc</label>
-				<input type="text" ref="desc"/>
-			</div>
-			<button type="submit" onClick={this.additem} >SUBMIT</button>
+				<input placeholder='name' ref="name"  />
+				<input placeholder='desc' ref="desc"  />
+				<Button type="submit" onClick={this.additem} >SUBMIT</Button>
 		</div>)
 	}
 }

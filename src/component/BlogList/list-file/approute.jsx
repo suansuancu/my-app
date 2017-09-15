@@ -5,6 +5,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Storage from 'localStorage';
 import AddItems from './addtask';
+import {List,Button} from 'semantic-ui-react';
 
 export default class AppRoute extends React.Component {
 	constructor(props){
@@ -57,7 +58,7 @@ export default class AppRoute extends React.Component {
 	// }
 
 	addTask(name, desc){
-		console.log(this.state.item);
+
 		let current = new Date(),
 			taskId = this.state.item.length == 0 ? 1 : this.state.item.length + 1,
 			created = (current.getMonth()+1) + "月" + current.getDate() + "日" + current.getHours() + ":" + (current.getMinutes() < 10 ? "0" + current.getMinutes() : current.getMinutes());
@@ -74,24 +75,33 @@ export default class AppRoute extends React.Component {
 	}
 	render(){
 		let itemlist = JSON.parse(window.localStorage.getItem('tasks')),
-			style = {marginRight:'20px'};
+			styleMB = {marginBottom:'20px'},
+			styleMT = {marginTop:'20px',marginBottom:'20px'};
 
 		return (<div>
-			<header className="header">
+			<header className="header" style={styleMB}>
 				<h2>TodoList</h2>
 				<div className="fa fa-plus" ></div>
 			</header>
-			<div className="itemList">{itemlist.map(function (value,index) {
-				return <div key={value.id}><span style={style}>{`id:` + value.id}</span><span style={style}>{`name:` + value.name}</span><span style={style}>{`desc:` + value.thought}</span></div>
-			})}</div>
 			<AddItems addTask={this.addTask} />
-			<nav className="menu">
-				<ul>
-					<li><Link to={'/tasks'}  className={'fa fa-tasks' + (this.props.location.pathname === '/' ? 'active' : '')} />ALL</li>
-					<li><Link to={`/tasks/completed`}  className="fa fa-check-circle" />DONE</li>
-					<li><Link to={'/tasks/uncompleted'} className="fa fa-clock-o" />UNFINISH</li>
-				</ul>
+			<nav className="menu" style={styleMT}>
+				<Button.Group>
+					<Button><Link to={'/blog/template2'}  className={'fa fa-tasks' + (this.props.location.pathname === '/' ? 'active' : '')} />ALL</Button>
+					<Button.Or />
+					<Button><Link to={`/blog/template2/completed`}  className="fa fa-check-circle" />DONE</Button>
+					<Button.Or />
+					<Button><Link to={'/blog/template2/uncompleted'} className="fa fa-clock-o" />UNFINISH</Button>
+				</Button.Group>
 			</nav>
+			<List relaxed='very'>{itemlist.map(function (value,index) {
+				return (<List.Item key={value.id}>
+					<List.Header as='a'>{value.name}</List.Header>
+					<List.Description>{value.thought}<a></a> {value.time}</List.Description>
+				</List.Item>)
+			})}
+			</List>
+
+
 		</div>)
 	}
 }

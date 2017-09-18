@@ -8,8 +8,8 @@ import {
 	Switch,
 	Link
 } from 'react-router-dom';
-// import TaskList from './tasksList';
-// import Task from './task';
+import TaskList from './tasksList';
+import Task from './task';
 import AppRoute from './approute';
 
 export default class Template2 extends React.Component {
@@ -18,8 +18,8 @@ export default class Template2 extends React.Component {
 		return(
 			<Router>
 				<Route path="/" component={AppRoute}>
-					{/*<Route path="/tasks/:type" component={TaskList}/>*/}
-					{/*<Route path="/task/:id" component={Task}/>*/}
+					<Route path="/template2/:type" component={TaskList}/>
+					<Route path="/template2/:id" component={Task}/>
 				</Route>
 			</Router>
 		)

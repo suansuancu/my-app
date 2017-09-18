@@ -85,13 +85,10 @@ export default class AppRoute extends React.Component {
 			</header>
 			<AddItems addTask={this.addTask} />
 			<nav className="menu" style={styleMT}>
-				<Button.Group>
-					<Button><Link to={'/blog/template2'}  className={'fa fa-tasks' + (this.props.location.pathname === '/' ? 'active' : '')} />ALL</Button>
-					<Button.Or />
-					<Button><Link to={`/blog/template2/completed`}  className="fa fa-check-circle" />DONE</Button>
-					<Button.Or />
-					<Button><Link to={'/blog/template2/uncompleted'} className="fa fa-clock-o" />UNFINISH</Button>
-				</Button.Group>
+
+				<span><Link to={'/template2/'}  className={'fa fa-tasks' + (this.props.location.pathname === '/' ? 'active' : '')} >ALL</Link></span>
+				<span><Link to={`/template2/completed`}  className="fa fa-check-circle" >DONE</Link></span>
+				<span><Link to={'/template2/uncompleted'} className="fa fa-clock-o" >UNFINISH</Link></span>
 			</nav>
 			<List relaxed='very'>{itemlist.map(function (value,index) {
 				return (<List.Item key={value.id}>
@@ -100,7 +97,6 @@ export default class AppRoute extends React.Component {
 				</List.Item>)
 			})}
 			</List>
-
 
 		</div>)
 	}

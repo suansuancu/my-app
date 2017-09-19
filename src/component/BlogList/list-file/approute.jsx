@@ -5,6 +5,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Storage from 'localStorage';
 import AddItems from './addtask';
+import SearchInput from './itemSearch';
 import {List,Button} from 'semantic-ui-react';
 
 export default class AppRoute extends React.Component {
@@ -15,47 +16,15 @@ export default class AppRoute extends React.Component {
 			item:[]
 		};
 		this.addTask = this.addTask.bind(this);
-		// this.finishTask = this.finishTask.bind(this);
-		// this.showPop = this.showPop.bind(this);
-		// this.hidePop = this.hidePop.bind(this);
-		// this.storage = Storage();
 	}
 
 	componentDidMount() {
-		let items = window.localStorage.getItem('tasks') || [];
+		let items = JSON.parse(localStorage.tasks);
 		this.setState({
 			items:items
 		})
+
 	}
-
-	// showPop(){
-	// 	this.setState({
-	// 		showAddPop:true
-	// 	})
-	// }
-	// hidePop(){
-	// 	this.setState({
-	// 		showAddPop:false
-	// 	})
-	// }
-
-	// addTask(name, desc) {
-	// 	let current = new Date(),
-	// 		taskId = this.state.items[0] ? this.state.items[0].id + 1:1,
-	// 		created = (current.getMonth() + 1) + '月' +current.getDate() + '日' +current.getHours() + ':' + (current.getMinutes() < 10 ? '0' + current.getMinutes() : current.getMinutes()),
-	// 	item = {
-	// 		id : taskId,
-	// 		name : name,
-	// 		desc: desc,
-	// 		created : created,
-	// 		state: 0,
-	// 		finish : 0,
-	// 		thought: 0
-	// 	};
-	// 	this.state.items.unshift(item);
-	// 	this.setState({items:this.state.items});
-	// 	this.storage.set('task', this.state.items);
-	// }
 
 	addTask(name, desc){
 
@@ -69,32 +38,36 @@ export default class AppRoute extends React.Component {
 			thought : desc,
 			time : created,
 		};
+
 		this.state.item.unshift(item);
 		this.setState({item : this.state.item});
 		window.localStorage.setItem('tasks', JSON.stringify(this.state.item));
 	}
+
 	render(){
 		let itemlist = JSON.parse(window.localStorage.getItem('tasks')),
-			styleMB = {marginBottom:'20px'},
-			styleMT = {marginTop:'20px',marginBottom:'20px'};
+			styleMB = {marginBottom: '20px',textAlign: 'center'},
+			styleMT = {marginTop:'20px',marginBottom:'20px'},
+			bottomSty = {borderBottom:'1px solid #ddd',marginBottom:'20px'};
 
-		return (<div>
+		return (<div className="todolist-container">
 			<header className="header" style={styleMB}>
 				<h2>TodoList</h2>
 				<div className="fa fa-plus" ></div>
 			</header>
 			<AddItems addTask={this.addTask} />
+			<SearchInput/>
 			<nav className="menu" style={styleMT}>
 
-				<span><Link to={'/template2/'}  className={'fa fa-tasks' + (this.props.location.pathname === '/' ? 'active' : '')} >ALL</Link></span>
-				<span><Link to={`/template2/completed`}  className="fa fa-check-circle" >DONE</Link></span>
-				<span><Link to={'/template2/uncompleted'} className="fa fa-clock-o" >UNFINISH</Link></span>
+				<span className="sub-status-btn"><Link to={'/template2/'}  className={'fa fa-tasks' + (this.props.location.pathname === '/' ? 'active' : '')} >ALL</Link></span>
+				<span className="sub-status-btn"><Link to={`/template2/completed`}  className="fa fa-check-circle" >DONE</Link></span>
+				<span className="sub-status-btn"><Link to={'/template2/uncompleted'} className="fa fa-clock-o" >UNFINISH</Link></span>
 			</nav>
 			<List relaxed='very'>{itemlist.map(function (value,index) {
-				return (<List.Item key={value.id}>
-					<List.Header as='a'>{value.name}</List.Header>
-					<List.Description>{value.thought}<a></a> {value.time}</List.Description>
-				</List.Item>)
+				return (<div style={bottomSty} key={value.id}>
+					<h4 as='a'>{value.name}</h4>
+					<div><span className="item-desc-info">{value.thought}</span><span className="item-time-info">{value.time}</span></div>
+				</div>)
 			})}
 			</List>
 

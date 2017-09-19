@@ -38,3 +38,42 @@ body {
     height: 55px;
     display: inline-block;
 }
+.sub-status-btn {
+    width: 75px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    display: inline-block;
+    background-color: beige;
+    margin-right: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sub-status-btn a{
+    color: #0f0f10;
+    font-weight: bolder;
+}
+.item-desc-info {
+    color:teal;
+    margin-right: 30px;
+}
+.todolist-container {
+    width: 500px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: aliceblue;
+    padding: 10px;
+}
+.item-time-info{
+    float: right;
+    position: relative;
+}
+.search-text-input {
+    height: 35px;
+}
+.search-confirm-btn {
+    width: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    vertical-align: middle;
+}

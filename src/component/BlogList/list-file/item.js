@@ -8,7 +8,7 @@ class Item extends React.Component {
 	render(){
 		let task = this.props.task;
 		if(task.state == 0) {
-			return (<div>
+			return (<div >
 				<li>
 					<p className="task-name">{task.name}<span>{task.created}</span></p>
 					<p><i className="fa fa-clock-o unfinished"></i></p>
@@ -16,7 +16,7 @@ class Item extends React.Component {
 				</li>
 			</div>)
 		}else {
-			return (<div>
+			return (<div style={bottomSty}>
 				<li>
 					<p className="task-name">{task.name}<span>{task.created}</span></p>
 					<p><i className="fa fa-check-square-o finished"></i></p>

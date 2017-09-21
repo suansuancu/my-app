@@ -77,3 +77,12 @@ body {
     cursor: pointer;
     vertical-align: middle;
 }
+
+
+/* new version style */
+.finished {
+    background: url("/asset/img/finish.svg") no-repeat;
+}
+.unfinish {
+    background: url("/asset/img/todo.svg") no-repeat;
+}

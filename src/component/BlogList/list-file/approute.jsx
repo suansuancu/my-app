@@ -16,6 +16,12 @@ export default class AppRoute extends React.Component {
 		this.addItem = this.addItem.bind(this);
 	}
 
+	componentDidMount() {
+		this.setState({
+			itemsAry: JSON.parse(window.localStorage.getItem('lists'))
+		})
+	}
+
 	addItem(title, detail){
 		let current = new Date(),
 			storageDataLen = JSON.parse(window.localStorage.getItem('tasks')).length || false,
@@ -36,7 +42,7 @@ export default class AppRoute extends React.Component {
 			<AddItem addTask={this.addItem}/>
 			<SearchItem/>
 			<StateItem/>
-			<ItemList/>
+			<ItemList tasks={this.state.itemsAry}/>
 		</div>)
 	}
 }

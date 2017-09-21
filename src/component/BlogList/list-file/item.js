@@ -12,11 +12,13 @@ export default class Item extends React.Component{
 
 	render(){
 		const stateCls = this.props.state == 1 ? 'finished' :'unfinish';
-		return (<div>
+
+		return (<li>
 			<i className={stateCls}></i>
-			<h2>{this.props.task.name}</h2>
-			<span>{this.props.task.desc}</span>
-		</div>)
+			<h2>{this.props.task.title}</h2>
+			<span>{this.props.task.detail}</span>
+			<span>{this.props.task.time}</span>
+		</li>)
 
 	}
 }

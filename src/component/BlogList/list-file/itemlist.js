@@ -8,6 +8,7 @@ import {
 	Switch,
 	Link
 } from 'react-router-dom';
+import Item from './item';
 
 export default class ItemList extends React.Component {
 	constructor(props){
@@ -15,10 +16,16 @@ export default class ItemList extends React.Component {
 	}
 
 	render() {
+		const itemlist = this.props.tasks;
 		return(
-			<div>
+			<ul>
+				{
+					itemlist.map(function(value, index){
 
-			</div>
+						return <Item task={value} key={index}/>
+					})
+				}
+			</ul>
 		)
 
 	}

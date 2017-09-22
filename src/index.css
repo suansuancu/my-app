@@ -38,10 +38,13 @@ body {
     height: 55px;
     display: inline-block;
 }
+.state-outer{
+    margin-top: 20px;
+}
 .sub-status-btn {
     width: 75px;
-    height: 20px;
-    line-height: 20px;
+    height: 35px;
+    line-height: 35px;
     text-align: center;
     display: inline-block;
     background-color: beige;
@@ -81,8 +84,32 @@ body {
 
 /* new version style */
 .finished {
-    background: url("/asset/img/finish.svg") no-repeat;
+    background: url("./asset/img/finish.svg") no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 3px;
 }
 .unfinish {
-    background: url("/asset/img/todo.svg") no-repeat;
+    background: url("./asset/img/todo.svg") no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 3px;
+}
+.item-list, .item-list li{
+    list-style: none;
+}
+.item-list {
+    padding-left: 0px;
+}
+.item-list li {
+    padding-left: 40px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    cursor: pointer;
 }

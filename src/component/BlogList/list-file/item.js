@@ -14,10 +14,12 @@ export default class Item extends React.Component{
 		const stateCls = this.props.state == 1 ? 'finished' :'unfinish';
 
 		return (<li>
-			<i className={stateCls}></i>
-			<h2>{this.props.task.title}</h2>
-			<span>{this.props.task.detail}</span>
-			<span>{this.props.task.time}</span>
+			<Link to={`/blog/template2/${this.props.task.id}`} >
+				<i className={stateCls}></i>
+				<h3>{this.props.task.title}</h3>
+				<span className="item-desc-info">{this.props.task.detail}</span>
+				<span className="item-time-info">{this.props.task.time}</span>
+			</Link>
 		</li>)
 
 	}

@@ -8,8 +8,10 @@ export default class StateItem extends React.Component {
 	}
 
 	render(){
-		return (<div>
-
+		return (<div className="state-outer">
+			<div className="sub-status-btn">ALL</div>
+			<div className="sub-status-btn">UNFINISH</div>
+			<div className="sub-status-btn">FINISH</div>
 		</div>)
 	}
 }

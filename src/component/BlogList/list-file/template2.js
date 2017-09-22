@@ -9,17 +9,14 @@ import {
 	Link
 } from 'react-router-dom';
 import AppRoute from './approute';
+import ItemInfo from './itemInfo';
+import ItemList from './itemlist';
 
 export default class Template2 extends React.Component {
 
 	render() {
-		return(
-			<Router>
-				<Route path="/" component={AppRoute}>
-					{/*<Route path="/template2/:type" component={TaskList} />*/}
-					{/*<Route path="/template2/:id" component={Task} />*/}
-				</Route>
-
+		return(<Router>
+				<AppRoute />
 			</Router>
 		)
 
